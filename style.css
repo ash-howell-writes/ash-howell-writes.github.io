@@ -1,0 +1,314 @@
+:root {
+  --violet: #6427ff;
+  --indigo: #4747ff;
+  --cyan: #2bf1ff;
+  --green: #9dfc4e;
+  --yellow: #ffee54;
+  --orange: #f19b38;
+  --pink: #ff3b86;
+  --dark: #06061f;
+  --light: #f5f5f5;
+  --max-width: 52rem;
+  --default-padding: 1rem;
+  --nav-height: 5rem;
+  --fade-height: 20vh;
+}
+
+@font-face {
+  font-family: "PT Root";
+  src:
+    url("./static/fonts/pt-root-ui_vf.woff2") format("woff2"),
+    url("./static/fonts/pt-root-ui_vf.woff2")
+      format("woff2-supports-variations");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fira Code";
+  src: url("./static/fonts/FiraCode-VariableFont_wght.ttf");
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lovelo Line";
+  src: url("./static/fonts/Lovelo-LineLight.woff2");
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lovelo";
+  src: url("./static/fonts/Lovelo-Black.woff2");
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Redacted Script";
+  src: url("./static/fonts/RedactedScript-Regular.ttf");
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    font-size: 1.3rem;
+  }
+}
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  margin: 0 auto;
+  font-family: "PT Root";
+  font-weight: 300;
+  background: var(--dark);
+  color: var(--light);
+}
+
+header {
+  width: 100%;
+  height: var(--nav-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  z-index: 10;
+  padding: var(--default-padding);
+  display: flex;
+  justify-content: center;
+  nav {
+    width: 100%;
+    max-width: var(--max-width);
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--default-padding);
+    img {
+      height: calc(var(--nav-height) - (var(--default-padding) * 2));
+      width: auto;
+      display: none;
+      @media (min-width: 260px) {
+        display: block;
+      }
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      gap: var(--default-padding);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    a {
+      display: inline-block;
+    }
+  }
+}
+
+main {
+  padding-top: var(--nav-height);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent calc(2 * (var(--nav-height) / 3)),
+    var(--dark) calc(var(--nav-height) + var(--fade-height))
+  );
+  mask-size: 100% 100lvh;
+  mask-repeat: no-repeat;
+  mask-position: 0 0;
+  animation: follow-viewport 1ms linear both;
+  animation-timeline: scroll(root block);
+}
+@keyframes follow-viewport {
+  to {
+    mask-position: 0 calc(100% + var(--nav-height));
+  }
+}
+
+section {
+  position: relative;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--nav-height) var(--default-padding);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: var(--default-padding) 0;
+}
+h1 {
+  font-family: "Lovelo Line";
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--item-color);
+}
+h2,
+h3,
+h4 {
+  font-family: "Lovelo";
+  line-height: 1.15;
+  color: var(--item-color);
+}
+p {
+  margin: 0;
+  line-height: 1.5;
+}
+ul {
+  margin: 0;
+  padding-inline-start: var(--default-padding);
+}
+li {
+  line-height: 1.5;
+  padding-bottom: 0.5rem;
+}
+a {
+  text-decoration: none;
+  color: var(--light);
+  padding: 0px 2px 1px;
+  background-image: linear-gradient(var(--item-color), var(--item-color));
+  background-repeat: repeat-x;
+  background-size: 100% 0.4em;
+  background-position: left 0 bottom -0.25em;
+  transition: 200ms;
+  &:hover,
+  &:focus-visible &:focus {
+    outline: none;
+    background-position: 100% 100%;
+    background-size: 100% 100%;
+    background-position: 100% 100%;
+    background-size: 100% 100%;
+    color: var(--dark);
+    font-weight: 500;
+  }
+}
+
+.code {
+  font-family: "Fira Code";
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 0;
+  overflow: visible;
+  white-space: nowrap;
+  animation: typewriter-blink 1s steps(1) infinite;
+  font-weight: 600;
+  color: var(--cyan);
+}
+@keyframes typewriter-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cyan {
+  --item-color: var(--cyan);
+}
+.green {
+  --item-color: var(--green);
+}
+.pink {
+  --item-color: var(--pink);
+}
+.liminal {
+  font-family: "Redacted Script";
+  color: var(--item-color);
+  font-size: 2rem;
+  text-wrap: nowrap;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+#top {
+  padding: 0 var(--default-padding) var(--nav-height);
+}
+
+footer {
+  width: 100%;
+  height: var(--nav-height);
+  padding: var(--default-padding);
+  display: flex;
+  justify-content: center;
+  nav {
+    width: 100%;
+    height: 100%;
+    max-width: var(--max-width);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    a {
+      background-image: none;
+      background-size: auto;
+      background-position: 0 0;
+      background-repeat: repeat;
+      transition: none;
+      position: relative;
+      display: inline-block;
+      width: 1.75rem;
+      height: 1.75rem;
+      background-color: var(--light);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--item-color);
+        clip-path: polygon(0 0, 0 0, 0 0);
+        transition: clip-path 0.4s ease-in-out;
+      }
+      &:hover::after,
+      &:focus-visible::after {
+        clip-path: polygon(0 0, 200% 0, 0 200%);
+      }
+      &.goodreads {
+        mask-image: url("/static/social/goodreads.svg");
+      }
+      &.instagram {
+        mask-image: url("/static/social/instagram.svg");
+      }
+      &.bluesky {
+        mask-image: url("/static/social/bluesky.svg");
+      }
+    }
+  }
+}
