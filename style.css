@@ -301,13 +301,13 @@ footer {
         clip-path: polygon(0 0, 200% 0, 0 200%);
       }
       &.goodreads {
-        mask-image: url("/static/social/goodreads.svg");
+        mask-image: url("./static/social/goodreads.svg");
       }
       &.instagram {
-        mask-image: url("/static/social/instagram.svg");
+        mask-image: url("./static/social/instagram.svg");
       }
       &.bluesky {
-        mask-image: url("/static/social/bluesky.svg");
+        mask-image: url("./static/social/bluesky.svg");
       }
     }
   }
