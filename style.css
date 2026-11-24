@@ -6,12 +6,13 @@
   --yellow: #ffee54;
   --orange: #f19b38;
   --pink: #ff3b86;
-  --dark: #06061f;
+  --dark: #0d0d1c;
   --light: #f5f5f5;
   --max-width: 65ch;
   --default-padding: 1rem;
   --nav-height: 5rem;
   --fade-height: 10rem;
+  --border-radius: 0.4rem;
 }
 
 @font-face {
@@ -89,12 +90,6 @@ body {
   color: var(--light);
 }
 
-nav,
-section {
-  width: 100%;
-  max-width: var(--max-width);
-}
-
 header {
   width: 100%;
   height: var(--nav-height);
@@ -108,6 +103,8 @@ header {
   display: flex;
   justify-content: center;
   nav {
+    width: 100%;
+    max-width: var(--max-width);
     height: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -157,6 +154,8 @@ main {
 }
 
 section {
+  width: 100%;
+  max-width: var(--max-width);
   position: relative;
   margin: 0 auto;
   min-height: calc(100vh - var(--nav-height));
@@ -165,22 +164,24 @@ section {
   justify-content: center;
   padding: var(--nav-height) var(--default-padding);
   scroll-margin-top: calc(2 * (var(--nav-height) / 3));
+  gap: 1rem;
 }
 
-h1,
+h1 {
+  font-family: "Lovelo Line";
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--item-color);
+  margin: 0;
+  padding: 0;
+}
 h2,
 h3,
 h4,
 h5,
 h6 {
   margin: 0;
-  padding: var(--default-padding) 0;
-}
-h1 {
-  font-family: "Lovelo Line";
-  font-size: 5rem;
-  line-height: 1;
-  color: var(--item-color);
+  padding: var(--default-padding) 0 0;
 }
 h2,
 h3,
@@ -222,7 +223,7 @@ a {
   }
 }
 
-.code {
+.typewriter {
   font-family: "Fira Code";
 }
 
@@ -243,7 +244,7 @@ a {
   white-space: nowrap;
   animation: typewriter-blink 1s steps(1) infinite;
   font-weight: 600;
-  color: var(--cyan);
+  color: var(--item-color);
 }
 @keyframes typewriter-blink {
   50% {
@@ -251,6 +252,9 @@ a {
   }
 }
 
+.indigo {
+  --item-color: var(--indigo);
+}
 .cyan {
   --item-color: var(--cyan);
 }
@@ -262,8 +266,8 @@ a {
 }
 .liminal {
   font-family: "Redacted Script";
+  font-size: 2.5rem;
   color: var(--item-color);
-  font-size: 2rem;
   text-wrap: nowrap;
   overflow-x: hidden;
   text-align: center;
@@ -271,6 +275,57 @@ a {
 
 #top {
   padding: 0 var(--default-padding) var(--nav-height);
+  .typewriter-container {
+    position: relative;
+  }
+  .typewriter {
+    position: absolute;
+    inset: 0 0 auto 0;
+  }
+}
+
+.social-links {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: var(--default-padding) 0;
+  a {
+    background-image: none;
+    background-size: auto;
+    background-position: 0 0;
+    background-repeat: repeat;
+    transition: none;
+    position: relative;
+    display: inline-block;
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: var(--light);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: var(--item-color);
+      clip-path: polygon(0 0, 0 0, 0 0);
+      transition: clip-path 0.4s ease-in-out;
+    }
+    &:hover::after,
+    &:focus-visible::after {
+      clip-path: polygon(0 0, 200% 0, 0 200%);
+    }
+    &.goodreads {
+      mask-image: url("./static/social/goodreads.svg");
+    }
+    &.instagram {
+      mask-image: url("./static/social/instagram.svg");
+    }
+    &.bluesky {
+      mask-image: url("./static/social/bluesky.svg");
+    }
+  }
 }
 
 footer {
@@ -279,47 +334,4 @@ footer {
   padding: var(--default-padding);
   display: flex;
   justify-content: center;
-  nav {
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 2rem;
-    a {
-      background-image: none;
-      background-size: auto;
-      background-position: 0 0;
-      background-repeat: repeat;
-      transition: none;
-      position: relative;
-      display: inline-block;
-      width: 1.75rem;
-      height: 1.75rem;
-      background-color: var(--light);
-      mask-size: contain;
-      mask-repeat: no-repeat;
-      mask-position: center;
-      &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-color: var(--item-color);
-        clip-path: polygon(0 0, 0 0, 0 0);
-        transition: clip-path 0.4s ease-in-out;
-      }
-      &:hover::after,
-      &:focus-visible::after {
-        clip-path: polygon(0 0, 200% 0, 0 200%);
-      }
-      &.goodreads {
-        mask-image: url("./static/social/goodreads.svg");
-      }
-      &.instagram {
-        mask-image: url("./static/social/instagram.svg");
-      }
-      &.bluesky {
-        mask-image: url("./static/social/bluesky.svg");
-      }
-    }
-  }
 }

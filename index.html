@@ -40,27 +40,29 @@
   <body>
     <header>
       <nav>
-        <img src="./static/icon/AH-bold.svg" role="img" alt="top" />
+        <a href="#top" aria-label="top">
+          <img src="./static/icon/AH-bold.svg" role="img" alt=""
+        /></a>
         <ul>
-          <li class="cyan"><a href="#top">top</a></li>
           <li class="green"><a href="#fiction">fiction</a></li>
           <li class="pink"><a href="#about">about</a></li>
+          <li class="cyan"><a href="#contact">contact</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <section id="top" class="cyan">
-        <h1 class="line cyan">Ash Howell</h1>
-        <div class="code-container">
-        <p class="visually-hidden">Sci-fi & fantasy author</p>
-        <p class="code" aria-hidden="true">
-          is
-          <span id="typing"></span>
-        </p>
+      <section id="top" class="indigo">
+        <h1 class="line indigo">Ash Howell</h1>
+        <div class="typewriter-container">
+          <div class="visually-hidden">Sci-fi & fantasy author</div>
+          <p class="typewriter" aria-hidden="true">
+            is
+            <span id="typing"></span>
+          </p>
         </div>
       </section>
-      <div class="liminal cyan"></div>
+      <div class="liminal indigo"></div>
       <section id="fiction" class="green">
         <h2>short fiction</h2>
         <ul>
@@ -108,40 +110,50 @@
         </p>
         <p>
           They are represented by
-          <a href="https://www.morhaimliterary.com/agents">Eric Showers</a> at
+          <a href="https://www.morhaimliterary.com/agents">Eric Showers</a>
+          at
           <a href="https://www.morhaimliterary.com"
             >Howard Morhaim Literary Agency</a
           >.
         </p>
       </section>
       <div class="liminal pink"></div>
+      <section id="contact" class="cyan">
+        <h2>contact</h2>
+        <p>
+          For publishing or rights-related inquiries, please contact
+          <a href="https://www.morhaimliterary.com/agents">Eric Showers</a>
+          at
+          <a href="https://www.morhaimliterary.com"
+            >Howard Morhaim Literary Agency</a
+          >.
+        </p>
+        <div class="social-links">
+          <a
+            href="https://www.goodreads.com/user/show/182314855-ash-howell"
+            class="green goodreads"
+            aria-label="Goodreads"
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
+          <a
+            href="https://www.instagram.com/ash.howell.writes/"
+            class="pink instagram"
+            aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
+          <a
+            href="https://bsky.app/profile/ash-howell.com"
+            class="cyan bluesky"
+            aria-label="Bluesky"
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
+        </div>
+      </section>
+      <div class="liminal cyan"></div>
     </main>
-
-    <footer>
-      <nav>
-        <a
-          href="https://bsky.app/profile/ash-howell.com"
-          class="cyan bluesky"
-          aria-label="Bluesky"
-          target="_blank"
-          rel="noopener noreferrer"
-        ></a>
-        <a
-          href="https://www.instagram.com/ash.howell.writes/"
-          class="green instagram"
-          aria-label="Instagram"
-          target="_blank"
-          rel="noopener noreferrer"
-        ></a>
-        <a
-          href="https://www.goodreads.com/user/show/182314855-ash-howell"
-          class="pink goodreads"
-          aria-label="Goodreads"
-          target="_blank"
-          rel="noopener noreferrer"
-        ></a>
-      </nav>
-    </footer>
 
     <script src="./scripts/typewriter.js" defer></script>
     <script src="./scripts/secretMessage.js" defer></script>
