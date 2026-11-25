@@ -175,7 +175,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--nav-height) var(--default-padding);
+  padding: var(--nav-height) 0;
   scroll-margin-top: calc(2 * (var(--nav-height) / 3));
   gap: 1rem;
 }
@@ -287,7 +287,7 @@ a {
 }
 
 #top {
-  padding: 0 var(--default-padding) var(--nav-height);
+  padding: 0 0 var(--nav-height);
   .typewriter-container {
     position: relative;
   }
@@ -344,7 +344,7 @@ a {
 footer {
   width: 100%;
   height: var(--nav-height);
-  padding: var(--default-padding);
+  padding: var(--default-padding) 0;
   display: flex;
   justify-content: center;
 }
