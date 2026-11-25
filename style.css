@@ -21,31 +21,31 @@
     url("./static/fonts/pt-root-ui_vf.woff2") format("woff2"),
     url("./static/fonts/pt-root-ui_vf.woff2")
       format("woff2-supports-variations");
-  font-weight: 300 700;
+  font-weight: 300 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Fira Code";
-  src: url("./static/fonts/FiraCode-VariableFont_wght.ttf");
+  src: url("./static/fonts/FiraCode-VariableFont_wght.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Lovelo Line";
-  src: url("./static/fonts/Lovelo-LineLight.woff2");
+  src: url("./static/fonts/Lovelo-LineLight.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Lovelo";
-  src: url("./static/fonts/Lovelo-Black.woff2");
+  src: url("./static/fonts/Lovelo-Black.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Redacted Script";
-  src: url("./static/fonts/RedactedScript-Regular.ttf");
+  src: url("./static/fonts/RedactedScript-Regular.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
 }
@@ -84,7 +84,7 @@ body {
   min-height: 100vh;
   height: 100%;
   margin: 0 auto;
-  font-family: "PT Root";
+  font-family: "PT Root", Arial, sans-serif;
   font-weight: 300;
   background: var(--dark);
   color: var(--light);
@@ -181,7 +181,7 @@ section {
 }
 
 h1 {
-  font-family: "Lovelo Line";
+  font-family: "Lovelo Line", sans-serif;
   font-size: 5rem;
   line-height: 1;
   color: var(--item-color);
@@ -199,7 +199,7 @@ h6 {
 h2,
 h3,
 h4 {
-  font-family: "Lovelo";
+  font-family: "Lovelo", sans-serif;
   line-height: 1.15;
   color: var(--item-color);
 }
@@ -237,7 +237,7 @@ a {
 }
 
 .typewriter {
-  font-family: "Fira Code";
+  font-family: "Fira Code", monospace;
 }
 
 .visually-hidden {
@@ -278,7 +278,7 @@ a {
   --item-color: var(--pink);
 }
 .liminal {
-  font-family: "Redacted Script";
+  font-family: "Redacted Script", cursive;
   font-size: 2.5rem;
   color: var(--item-color);
   text-wrap: nowrap;
