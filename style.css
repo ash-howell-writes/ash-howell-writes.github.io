@@ -136,20 +136,33 @@ header {
 
 main {
   padding-top: var(--nav-height);
-  mask-image: linear-gradient(
-    to bottom,
-    transparent calc(2 * (var(--nav-height) / 3)),
-    var(--dark) calc(var(--nav-height) + var(--fade-height))
-  );
-  mask-size: 100% 100lvh;
-  mask-repeat: no-repeat;
-  mask-position: 0 0;
-  animation: follow-viewport 1ms linear both;
-  animation-timeline: scroll(root block);
+}
+@supports (animation-timeline: scroll(root block)) {
+  main {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent calc(2 * (var(--nav-height) / 3)),
+      var(--dark) calc(var(--nav-height) + var(--fade-height))
+    );
+    mask-size: 100% 100lvh;
+    mask-repeat: no-repeat;
+    mask-position: 0 0;
+    animation: follow-viewport 1ms linear both;
+    animation-timeline: scroll(root block);
+  }
 }
 @keyframes follow-viewport {
   to {
     mask-position: 0 calc(100% + var(--nav-height));
+  }
+}
+@supports not (animation-timeline: scroll(root block)) {
+  header {
+    background: linear-gradient(
+      to bottom,
+      var(--dark) calc(100% - 1rem),
+      transparent
+    );
   }
 }
 
